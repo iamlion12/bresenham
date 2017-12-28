@@ -31,7 +31,10 @@ class Picture:
         """
         Insert pixel in (x, y) and setup the color.
         """
-        self.data[x][y] = np.array(color, dtype=np.uint8)
+        try:
+            self.data[x][y] = np.array(color, dtype=np.uint8)
+        except IndexError:
+            pass
 
     def setMultiplePixels(self, coords, color):
         """
